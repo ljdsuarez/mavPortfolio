@@ -14,21 +14,53 @@
   </head>
   <body>
     <main id="main">
+      <!-- NAVIGATION START-->
+      <div class="nav-container" data-nav="show" id="nav">
+        <div class="logo">
+          <img src="./public/MavLogo.svg" alt="Mav Logo" />
+        </div>
+        <div class="nav">
+          <div class="nav-name"><a href="#home">Home</a></div>
+          <div class="nav-name"><a href="#about">About</a></div>
+          <div class="nav-name"><a href="#works">Works</a></div>
+          <div class="nav-name" id="nav-contacts">
+            <a href="#contacts">Contacts</a>
+          </div>
+        </div>
+      </div>
+      <!-- NAVIGATION END-->
+
       <!-- LANDING PAGE START-->
-      <div class="landing-page">
-        <div class="landing-card">
-          <div class="landing-greetings">Hello!</div>
-          <div class="landing-title">I'm Mav</div>
-          <div class="landing-subtitle">SOCIAL MEDIA MANAGER</div>
-          <div class="landing-line"></div>
-          <div class="landing-footer">Social Media Management, Copywriting</div>
-          <div class="landing-footer">Graphic Artist, FB Ads Manager</div>
+      <div class="landing-page" id="home">
+        <div class="landing-card" data-flip="front" id="landing-card">
+          <div class="landing-card-front">
+            <div class="landing-greetings">Hello!</div>
+            <div class="landing-title">I'm Mav</div>
+            <div class="landing-subtitle">SOCIAL MEDIA MANAGER</div>
+            <div class="landing-line"></div>
+            <div class="landing-footer">
+              Social Media Management, Copywriting
+            </div>
+            <div class="landing-footer">Graphic Artist, FB Ads Manager</div>
+          </div>
+          <div class="landing-card-back">HELLO</div>
         </div>
       </div>
       <!-- LANDING PAGE END-->
       <!-- ABOUT PAGE START-->
-      <div class="about"></div>
+      <div class="about" id="about">
+        <img class="about-image" src="./public/mavPic.png" alt="" />
+        <div class="about-title">About Mav</div>
+        <div class="about-card">
+          I have been an experienced Social Media Manager with an expertise in
+          creating, developing and managing social media accounts such as
+          Facebook, Instagram, Shopee, Lazada and LinkedIn.
+        </div>
+      </div>
       <!-- ABOUT PAGE END-->
+      <!-- WORKS PAGE START-->
+      <div class="works" id="works"></div>
+      <!-- WORKS PAGE END-->
     </main>
 
     <script src="script.js"></script>

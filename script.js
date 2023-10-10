@@ -51,3 +51,32 @@ function handleMediaQuery(event) {
 }
 handleMediaQuery(mediaQuery);
 mediaQuery.addEventListener("change", handleMediaQuery);
+
+//mobile scroll hide-show
+
+const dataNav = document.querySelector("[data-nav]");
+let lastScollTop = window.scrollY;
+
+window.addEventListener("scroll", function handleScroll() {
+  const scrollTopPosition = window.scrollY;
+
+  if (scrollTopPosition > lastScollTop) {
+    dataNav.dataset.nav = "hide";
+  } else if (scrollTopPosition < lastScollTop) {
+    dataNav.dataset.nav = "show";
+  }
+  lastScollTop = scrollTopPosition <= 0 ? 0 : scrollTopPosition;
+});
+
+//landing-card flip
+
+const landingCardFlip = document.querySelector("[data-flip]");
+const landingCard = document.getElementById("landing-card");
+
+landingCard.addEventListener("click", () => {
+  if (landingCardFlip.dataset.flip == "front") {
+    landingCardFlip.dataset.flip = "back";
+  } else {
+    landingCardFlip.dataset.flip = "front";
+  }
+});
