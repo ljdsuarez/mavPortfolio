@@ -40,6 +40,19 @@ function handleMediaQuery(event) {
     function lerp(a, b, n) {
       return (1 - n) * a + n * b;
     }
+
+    const dataNav = document.querySelector("[data-nav]");
+
+    window.addEventListener("scroll", function handleScroll() {
+      const scrollTopPosition = window.scrollY;
+
+      if (scrollTopPosition > lastScollTop) {
+        dataNav.dataset.nav = "show";
+      } else if (scrollTopPosition < lastScollTop) {
+        dataNav.dataset.nav = "show";
+      }
+      lastScollTop = scrollTopPosition <= 0 ? 0 : scrollTopPosition;
+    });
   } else {
     requestAnimationFrame(render);
     function render() {
@@ -79,4 +92,20 @@ landingCard.addEventListener("click", () => {
   } else {
     landingCardFlip.dataset.flip = "front";
   }
+});
+
+//home
+const navHome = document.getElementById("nav-home");
+
+navHome.addEventListener("click", () => {
+  window.scrollTo(0, 0);
+  landingCardFlip.dataset.flip = "front";
+});
+
+//contacts
+const navContacts = document.getElementById("nav-contacts");
+
+navContacts.addEventListener("click", () => {
+  window.scrollTo(0, 0);
+  landingCardFlip.dataset.flip = "back";
 });

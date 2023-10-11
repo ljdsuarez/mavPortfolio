@@ -20,6 +20,23 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   scroll-behavior: smooth;
+
+  /* font varibales */
+  --font-1: "Montserrat", sans-serif;
+  --font-2: "Montserrat Subrayada", sans-serif;
+  --font-3: "Moul", serif;
+  --font-4: "Mr De Haviland", cursive;
+  --font-5: "Dancing Script", cursive;
+
+  /* color variables */
+  --color-1: #fff0ea;
+  --color-2: #ff9d9d;
+  --color-3: #5e5343;
+
+  /* color variables */
+
+  --underline-width: 50px;
+  --underline-height: 2px;
 }
 
 /* Reapply the pointer cursor for anchor tags */
@@ -110,18 +127,6 @@ meter {
 /* ====================================================================================================== */
 
 #main {
-  /* font varibales */
-  --font-1: "Montserrat", sans-serif;
-  --font-2: "Montserrat Subrayada", sans-serif;
-  --font-3: "Moul", serif;
-  --font-4: "Mr De Haviland", cursive;
-  --font-5: "Dancing Script", cursive;
-
-  /* color variables */
-  --color-1: #fff0ea;
-  --color-2: #ff9d9d;
-  --color-3: #5e5343;
-
   top: 0;
   left: 0;
   width: 100%;
@@ -146,6 +151,7 @@ meter {
   align-items: center;
   justify-content: space-between;
   z-index: 100;
+  padding: 0 10px;
 }
 
 [data-nav="show"] {
@@ -165,11 +171,15 @@ meter {
   display: flex;
   font-family: var(--font-1);
   font-size: 0.8rem;
+  margin-right: 5px;
+  position: relative;
+  white-space: nowrap;
+  padding-bottom: var(--underline-height);
 }
 
 .nav-name {
-  margin: 0px 5px;
   color: var(--color-3);
+  width: var(--underline-width);
 }
 
 /* ============== NAVIGATION END ============== */
@@ -258,6 +268,55 @@ meter {
   justify-content: center;
   align-items: center;
   transform: rotateY(180deg);
+  position: absolute;
+  flex-direction: column;
+  top: 0;
+  padding-bottom: 30px;
+}
+
+.contacts-greetings {
+  font-family: var(--font-4);
+  font-size: 2.5rem;
+}
+
+.contacts-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.contact-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-3);
+  width: 100%;
+  margin: 5px 0;
+}
+
+.contact-title {
+  font-family: var(--font-1);
+  font-size: 1rem;
+  text-align: center;
+  color: var(--color-2);
+  font-weight: 800;
+}
+
+.contact-line {
+  width: 40%;
+  height: 1px;
+  background-color: var(--color-3);
+  margin: 5px 0;
+}
+
+.contact-subtitle {
+  font-family: var(--font-1);
+  font-size: 0.7rem;
+  text-align: center;
 }
 
 .landing-card-front,
@@ -265,6 +324,45 @@ meter {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
+.contact-footer-line {
+  margin: 20px 0;
+  height: 1px;
+  width: 70%;
+  background-color: var(--color-2);
+}
+
+.contact-footer {
+  color: var(--color-3);
+  font-family: var(--font-1);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.contact-footer-line,
+.contact-footer {
+  display: none;
+}
+
+/* 
+.click-me-container {
+  height: 50px;
+  width: 100px;
+  opacity: 0.7;
+  left: 20px;
+  position: absolute;
+  display: flex;
+  top: 6%;
+}
+
+.click-me-container img {
+  width: 70px;
+  transform: rotate(55deg);
+}
+
+.click-me {
+  font-family: var(--font-3);
+} */
 
 /* ============== LANDING PAGE END ============== */
 
@@ -326,11 +424,25 @@ meter {
 /* ================================== DESKTOP =================================== */
 
 @media (min-width: 768px) {
+  /* ============== LANDING PAGE START ============== */
+
   .nav-container {
-    display: none;
+    height: 50px;
   }
 
-  /* ============== LANDING PAGE START ============== */
+  .logo {
+    height: 50px;
+    width: 100%;
+  }
+
+  .nav {
+    font-size: 1rem;
+    margin-right: 50px;
+  }
+
+  .nav-name {
+    width: 70px;
+  }
 
   .landing-page {
     width: 100%;
@@ -351,7 +463,7 @@ meter {
   }
 
   .landing-greetings {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   .landing-title {
@@ -368,10 +480,55 @@ meter {
     font-size: 0.8rem;
   }
   /* ============== LANDING PAGE END ============== */
+
+  /* ============== CONTACT PAGE START ============== */
+
+  .contacts-greetings {
+    margin-top: 30px;
+    font-size: 4rem;
+  }
+
+  .contacts-container {
+    flex-direction: row;
+    margin: 0 20px;
+  }
+
+  .contact-detail {
+    height: 200px;
+    margin: 0 10px;
+    justify-content: flex-start;
+  }
+
+  .contact-title {
+    font-size: 1.5rem;
+    height: 60px;
+  }
+
+  .contact-line {
+    width: 70%;
+    margin-bottom: 20px;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  .contact-footer-line,
+  .contact-footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ============== CONTACT PAGE END============== */
 }
 
 @media (min-width: 1024px) {
   .landing-page {
     width: 1024px;
+  }
+
+  .landing-card {
+    margin: 0 100px;
   }
 }
