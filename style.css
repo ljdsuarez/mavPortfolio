@@ -170,7 +170,7 @@ meter {
 .nav {
   display: flex;
   font-family: var(--font-1);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   margin-right: 5px;
   position: relative;
   white-space: nowrap;
@@ -180,6 +180,28 @@ meter {
 .nav-name {
   color: var(--color-3);
   width: var(--underline-width);
+  text-align: center;
+}
+
+.underline {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: var(--underline-height);
+  width: 25%;
+  background-color: var(--color-2);
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+  border-radius: 100px;
+}
+
+.underline:nth-child(1) {
+  transition: calc((0.5s) * 0.8);
+}
+
+.underline:nth-child(2) {
+  transition: calc((0.5s) * 1.2);
 }
 
 /* ============== NAVIGATION END ============== */

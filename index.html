@@ -14,7 +14,12 @@
   </head>
   <body>
     <!-- NAVIGATION START-->
-    <div class="nav-container" data-nav="show" id="nav">
+    <div
+      class="nav-container"
+      data-nav="show"
+      data-nav-container="mobile"
+      id="nav"
+    >
       <div class="logo">
         <img src="./public/MavLogo.svg" alt="Mav Logo" />
       </div>
@@ -22,11 +27,13 @@
         <div class="underline"></div>
         <div class="underline"></div>
         <div class="underline"></div>
-        <div class="nav-name" id="nav-home"><a href="#home">Home</a></div>
-        <div class="nav-name"><a href="#about">About</a></div>
-        <div class="nav-name"><a href="#works">Works</a></div>
-        <div class="nav-name" id="nav-contacts">
-          <a href="#contacts">Contacts</a>
+        <div class="nav-name" id="nav-home" data-page="0">
+          <a>Home</a>
+        </div>
+        <div class="nav-name" data-page="1" id="nav-about"><a>About</a></div>
+        <div class="nav-name" data-page="2" id="nav-works"><a>Works</a></div>
+        <div class="nav-name" id="nav-contacts" data-page="3">
+          <a>Contacts</a>
         </div>
       </div>
     </div>

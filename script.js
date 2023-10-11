@@ -13,9 +13,11 @@ let dx = 0;
 let dy = 0;
 
 body.style.height = main.clientHeight + "px";
+const navContainer = document.querySelector("[data-nav-container]");
 
 function handleMediaQuery(event) {
   if (event.matches) {
+    navContainer.dataset.navContainer = "desktop";
     window.addEventListener("scroll", scroll);
 
     function scroll() {
@@ -54,6 +56,7 @@ function handleMediaQuery(event) {
       lastScollTop = scrollTopPosition <= 0 ? 0 : scrollTopPosition;
     });
   } else {
+    navContainer.dataset.navContainer = "mobile";
     requestAnimationFrame(render);
     function render() {
       document.getElementById("main").style.transform = null;
@@ -65,14 +68,14 @@ function handleMediaQuery(event) {
 handleMediaQuery(mediaQuery);
 mediaQuery.addEventListener("change", handleMediaQuery);
 
-//mobile scroll hide-show
+//mobile nav hide-show
 
 const dataNav = document.querySelector("[data-nav]");
 let lastScollTop = window.scrollY;
 
 window.addEventListener("scroll", function handleScroll() {
   const scrollTopPosition = window.scrollY;
-
+  //mobile nav hide-show
   if (scrollTopPosition > lastScollTop) {
     dataNav.dataset.nav = "hide";
   } else if (scrollTopPosition < lastScollTop) {
@@ -94,18 +97,103 @@ landingCard.addEventListener("click", () => {
   }
 });
 
-//home
-const navHome = document.getElementById("nav-home");
+//nav underline animation
 
-navHome.addEventListener("click", () => {
-  window.scrollTo(0, 0);
-  landingCardFlip.dataset.flip = "front";
-});
+function ul(index) {
+  let underlines = document.querySelectorAll(".underline");
 
-//contacts
-const navContacts = document.getElementById("nav-contacts");
+  for (let i = 0; i < underlines.length; i++) {
+    underlines[i].style.transform = `translateX(${index * 100}%)`;
+  }
+}
 
-navContacts.addEventListener("click", () => {
-  window.scrollTo(0, 0);
-  landingCardFlip.dataset.flip = "back";
-});
+//page-navigations
+const homePage = document.getElementById("home");
+const aboutPage = document.getElementById("about");
+const worksPage = document.getElementById("works");
+
+function underline() {
+  let scrollTopPosition = window.scrollY;
+
+  if (
+    scrollTopPosition > homePage.offsetTop &&
+    scrollTopPosition < aboutPage.offsetTop - 100
+  ) {
+    ul(0);
+  } else if (
+    scrollTopPosition > aboutPage.offsetTop - 100 &&
+    scrollTopPosition < worksPage.offsetTop - 100
+  ) {
+    ul(1);
+  } else if (scrollTopPosition > worksPage.offsetTop - 100) {
+    ul(2);
+  } else if (landingCardFlip.dataset.flip == "back") {
+    ul(3);
+  } else {
+    ul(0);
+  }
+
+  requestAnimationFrame(underline);
+}
+
+requestAnimationFrame(underline);
+
+if (navContainer.dataset.navContainer == "mobile") {
+  //home
+  const navHome = document.getElementById("nav-home");
+
+  navHome.addEventListener("click", () => {
+    window.scrollTo(0, 0);
+    landingCardFlip.dataset.flip = "front";
+  });
+
+  //contacts
+  const navContacts = document.getElementById("nav-contacts");
+
+  navContacts.addEventListener("click", () => {
+    window.scrollTo(0, 0);
+    landingCardFlip.dataset.flip = "back";
+  });
+
+  //about
+  const navAbout = document.getElementById("nav-about");
+
+  navAbout.addEventListener("click", () => {
+    window.scrollTo(0, aboutPage.offsetTop);
+  });
+
+  //works
+  const navWorks = document.getElementById("nav-works");
+
+  navWorks.addEventListener("click", () => {
+    window.scrollTo(0, worksPage.offsetTop);
+  });
+} else {
+  //home
+  const navHome = document.getElementById("nav-home");
+
+  navHome.addEventListener("click", () => {
+    window.scrollTo(0, 0);
+    landingCardFlip.dataset.flip = "front";
+  });
+
+  //contacts
+  const navContacts = document.getElementById("nav-contacts");
+
+  navContacts.addEventListener("click", () => {
+    window.scrollTo(0, 0);
+    landingCardFlip.dataset.flip = "back";
+  });
+
+  //about
+  const navAbout = document.getElementById("nav-about");
+
+  navAbout.addEventListener("click", () => {});
+
+  //works
+  const navWorks = document.getElementById("nav-works");
+
+  navWorks.addEventListener("click", () => {
+    window.scrollTo(0, worksPage.offsetTop);
+  });
+}
