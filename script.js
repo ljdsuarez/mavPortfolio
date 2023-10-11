@@ -115,24 +115,43 @@ const worksPage = document.getElementById("works");
 function underline() {
   let scrollTopPosition = window.scrollY;
 
-  if (
-    scrollTopPosition > homePage.offsetTop &&
-    scrollTopPosition < aboutPage.offsetTop - 100
-  ) {
-    ul(0);
-  } else if (
-    scrollTopPosition > aboutPage.offsetTop - 100 &&
-    scrollTopPosition < worksPage.offsetTop - 100
-  ) {
-    ul(1);
-  } else if (scrollTopPosition > worksPage.offsetTop - 100) {
-    ul(2);
-  } else if (landingCardFlip.dataset.flip == "back") {
-    ul(3);
+  if (navContainer.dataset.navContainer == "mobile") {
+    if (
+      scrollTopPosition > homePage.offsetTop &&
+      scrollTopPosition < aboutPage.offsetTop - 100
+    ) {
+      ul(0);
+    } else if (
+      scrollTopPosition > aboutPage.offsetTop - 100 &&
+      scrollTopPosition < worksPage.offsetTop - 100
+    ) {
+      ul(1);
+    } else if (scrollTopPosition > worksPage.offsetTop - 100) {
+      ul(2);
+    } else if (landingCardFlip.dataset.flip == "back") {
+      ul(3);
+    } else {
+      ul(0);
+    }
   } else {
-    ul(0);
+    if (
+      scrollTopPosition > homePage.offsetTop &&
+      scrollTopPosition < aboutPage.offsetTop / 2 - 100
+    ) {
+      ul(0);
+    } else if (
+      scrollTopPosition > aboutPage.offsetTop / 2 - 100 &&
+      scrollTopPosition < worksPage.offsetTop / 2 - 100
+    ) {
+      ul(1);
+    } else if (scrollTopPosition > worksPage.offsetTop / 2 - 100) {
+      ul(2);
+    } else if (landingCardFlip.dataset.flip == "back") {
+      ul(3);
+    } else {
+      ul(0);
+    }
   }
-
   requestAnimationFrame(underline);
 }
 
@@ -188,12 +207,14 @@ if (navContainer.dataset.navContainer == "mobile") {
   //about
   const navAbout = document.getElementById("nav-about");
 
-  navAbout.addEventListener("click", () => {});
+  navAbout.addEventListener("click", () => {
+    scrollTo(0, aboutPage.offsetTop / 2);
+  });
 
   //works
   const navWorks = document.getElementById("nav-works");
 
   navWorks.addEventListener("click", () => {
-    window.scrollTo(0, worksPage.offsetTop);
+    window.scrollTo(0, worksPage.offsetTop / 2);
   });
 }

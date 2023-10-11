@@ -175,6 +175,7 @@ meter {
   position: relative;
   white-space: nowrap;
   padding-bottom: var(--underline-height);
+  cursor: pointer;
 }
 
 .nav-name {
@@ -366,26 +367,6 @@ meter {
   display: none;
 }
 
-/* 
-.click-me-container {
-  height: 50px;
-  width: 100px;
-  opacity: 0.7;
-  left: 20px;
-  position: absolute;
-  display: flex;
-  top: 6%;
-}
-
-.click-me-container img {
-  width: 70px;
-  transform: rotate(55deg);
-}
-
-.click-me {
-  font-family: var(--font-3);
-} */
-
 /* ============== LANDING PAGE END ============== */
 
 /* ============== ABOUT PAGE START ============== */
@@ -395,15 +376,14 @@ meter {
   height: 100vh;
   height: 100svh;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-image {
-  width: 200px;
-  object-fit: contain;
-  height: 300px;
-  position: absolute;
-  bottom: 0;
-  z-index: 2;
+  display: none;
 }
 
 .about-title {
@@ -417,7 +397,7 @@ meter {
 .about-card {
   height: 200px;
   width: 80%;
-  margin: auto;
+  margin: 30px 0 200px 0;
   background-color: var(--color-2);
   border-radius: 20px;
   opacity: 0.6;
@@ -464,6 +444,7 @@ meter {
 
   .nav-name {
     width: 70px;
+    margin: 0 10px;
   }
 
   .landing-page {
@@ -513,10 +494,11 @@ meter {
   .contacts-container {
     flex-direction: row;
     margin: 0 20px;
+    align-items: flex-end;
   }
 
   .contact-detail {
-    height: 200px;
+    height: 150px;
     margin: 0 10px;
     justify-content: flex-start;
   }
@@ -543,6 +525,31 @@ meter {
   }
 
   /* ============== CONTACT PAGE END============== */
+
+  /* ============== ABOUT PAGE START============== */
+
+  .about-image {
+    display: block;
+    width: 50%;
+    object-fit: contain;
+    height: 80%;
+    position: absolute;
+    bottom: 0;
+    left: -40px;
+    z-index: 2;
+    filter: brightness(110%);
+  }
+
+  .about-card {
+    align-self: flex-end;
+    width: 75%;
+    margin-right: 45px;
+    padding-left: 200px;
+    font-size: 1.5rem;
+    height: 300px;
+  }
+
+  /* ============== ABOUT PAGE END============== */
 }
 
 @media (min-width: 1024px) {
@@ -552,5 +559,9 @@ meter {
 
   .landing-card {
     margin: 0 100px;
+  }
+
+  .about {
+    width: 1024px;
   }
 }
