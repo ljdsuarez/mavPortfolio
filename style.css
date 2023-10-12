@@ -227,6 +227,7 @@ meter {
   transform-style: preserve-3d;
   transition: all 1s ease-in-out;
   cursor: pointer;
+  aspect-ratio: 1;
 }
 
 [data-flip="front"] {
@@ -423,10 +424,15 @@ meter {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  overflow: hidden;
 }
 
 .work-container {
-  width: 90%;
+  width: 80%;
   height: 60vh;
   display: flex;
   justify-content: center;
@@ -434,24 +440,26 @@ meter {
   position: relative;
 }
 
+.work-container img {
+  border-radius: 30px;
+}
+
 .work-card {
   object-fit: contain;
-  max-width: 200px;
-  max-height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  transition: all 0.5s cubic-bezier(0.23, 0.62, 0.63, 0.89);
+  transition: all 0.8s cubic-bezier(0.23, 0.62, 0.63, 0.89);
   position: absolute;
-  overflow: hidden;
   opacity: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .next {
   height: 100%;
   width: 100%;
-  transform: translateX(50px) scale(0.8);
+  transform: translateX(50%) scale(0.8);
   opacity: 0.5;
   position: absolute;
 }
@@ -468,7 +476,7 @@ meter {
 .prev {
   height: 100%;
   width: 100%;
-  transform: translateX(-50px) scale(0.8);
+  transform: translateX(-50%) scale(0.8);
   opacity: 0.5;
   position: absolute;
 }
@@ -478,7 +486,9 @@ meter {
   max-height: 100px;
   max-width: 100px;
   z-index: 3;
-  transform: translate(-25px, 120px);
+  transform: translateX(-25px);
+  bottom: 0;
+  cursor: pointer;
 }
 
 .arrow-right {
@@ -486,7 +496,9 @@ meter {
   max-height: 100px;
   max-width: 100px;
   z-index: 3;
-  transform: translate(25px, 120px);
+  transform: translateX(25px);
+  bottom: 0;
+  cursor: pointer;
 }
 
 .opacity-card {
@@ -497,8 +509,21 @@ meter {
 
 /* ================================== DESKTOP =================================== */
 
+@media (min-width: 425px) {
+  .landing-card {
+    aspect-ratio: 3/2;
+  }
+}
+
 @media (min-width: 768px) {
   /* ============== LANDING PAGE START ============== */
+
+  #main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 
   .nav-container {
     height: 50px;
@@ -531,6 +556,7 @@ meter {
 
   .landing-card {
     margin: 50px 45px 0px;
+    aspect-ratio: auto;
   }
 
   .landing-card-front {
@@ -622,6 +648,15 @@ meter {
   }
 
   /* ============== ABOUT PAGE END============== */
+
+  /* ============== WORKS PAGE START============== */
+
+  .works {
+    height: 100vh;
+    height: 100svh;
+  }
+
+  /* ============== WORKS PAGE END============== */
 }
 
 @media (min-width: 1024px) {
@@ -634,6 +669,10 @@ meter {
   }
 
   .about {
+    width: 1024px;
+  }
+
+  .works {
     width: 1024px;
   }
 }

@@ -13,6 +13,7 @@ let dx = 0;
 let dy = 0;
 
 body.style.height = main.clientHeight + "px";
+
 const navContainer = document.querySelector("[data-nav-container]");
 
 function handleMediaQuery(event) {
@@ -65,6 +66,7 @@ function handleMediaQuery(event) {
     }
   }
 }
+
 handleMediaQuery(mediaQuery);
 mediaQuery.addEventListener("change", handleMediaQuery);
 
@@ -136,15 +138,15 @@ function underline() {
   } else {
     if (
       scrollTopPosition > homePage.offsetTop &&
-      scrollTopPosition < aboutPage.offsetTop / 2 - 100
+      scrollTopPosition < aboutPage.offsetTop - 100
     ) {
       ul(0);
     } else if (
-      scrollTopPosition > aboutPage.offsetTop / 2 - 100 &&
-      scrollTopPosition < worksPage.offsetTop / 2 - 100
+      scrollTopPosition > aboutPage.offsetTop - 100 &&
+      scrollTopPosition < worksPage.offsetTop - 100
     ) {
       ul(1);
-    } else if (scrollTopPosition > worksPage.offsetTop / 2 - 100) {
+    } else if (scrollTopPosition > worksPage.offsetTop - 100) {
       ul(2);
     } else if (landingCardFlip.dataset.flip == "back") {
       ul(3);
@@ -208,14 +210,14 @@ if (navContainer.dataset.navContainer == "mobile") {
   const navAbout = document.getElementById("nav-about");
 
   navAbout.addEventListener("click", () => {
-    scrollTo(0, aboutPage.offsetTop / 2);
+    scrollTo(0, aboutPage.offsetTop);
   });
 
   //works
   const navWorks = document.getElementById("nav-works");
 
   navWorks.addEventListener("click", () => {
-    window.scrollTo(0, worksPage.offsetTop / 2);
+    window.scrollTo(0, worksPage.offsetTop);
   });
 }
 
