@@ -444,6 +444,8 @@ meter {
   border-radius: 20px;
   transition: all 0.5s cubic-bezier(0.23, 0.62, 0.63, 0.89);
   position: absolute;
+  overflow: hidden;
+  opacity: 0;
 }
 
 .next {
@@ -460,6 +462,7 @@ meter {
   z-index: 2;
   transform: translateX(0px) scale(1);
   position: absolute;
+  opacity: 1;
 }
 
 .prev {
