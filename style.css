@@ -441,28 +441,51 @@ meter {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+  transition: all 0.5s cubic-bezier(0.23, 0.62, 0.63, 0.89);
 }
-.work-card1 {
+
+[data-work="1"] {
   background-color: red;
   height: 100%;
   width: 100%;
   z-index: 2;
+  transform: translateX(0px) scale(1);
 }
 
-.work-card2 {
-  background-color: yellow;
+[data-work="2"] {
+  background-color: blue;
   height: 100%;
   width: 100%;
   position: absolute;
   transform: translateX(50px) scale(0.9);
 }
 
-.work-card3 {
-  background-color: blue;
+[data-work="3"] {
+  background-color: green;
   height: 100%;
   width: 100%;
   position: absolute;
   transform: translateX(-50px) scale(0.9);
+}
+
+.arrow-left {
+  position: absolute;
+  max-height: 100px;
+  max-width: 100px;
+  z-index: 3;
+  transform: translate(-25px, 120px);
+}
+
+.arrow-right {
+  position: absolute;
+  max-height: 100px;
+  max-width: 100px;
+  z-index: 3;
+  transform: translate(25px, 120px);
+}
+
+.opacity-card {
+  opacity: 0.5;
 }
 
 /* ============== WORKS PAGE END ============== */
@@ -608,4 +631,10 @@ meter {
   .about {
     width: 1024px;
   }
+}
+
+/* ============== MATERIAL ICON ============== */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  color: var(--color-3);
 }
