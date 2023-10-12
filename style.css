@@ -431,6 +431,7 @@ meter {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .work-card {
@@ -442,30 +443,31 @@ meter {
   align-items: center;
   border-radius: 20px;
   transition: all 0.5s cubic-bezier(0.23, 0.62, 0.63, 0.89);
+  position: absolute;
 }
 
-[data-work="1"] {
-  background-color: red;
+.next {
+  height: 100%;
+  width: 100%;
+  transform: translateX(50px) scale(0.8);
+  opacity: 0.5;
+  position: absolute;
+}
+
+.active {
   height: 100%;
   width: 100%;
   z-index: 2;
   transform: translateX(0px) scale(1);
+  position: absolute;
 }
 
-[data-work="2"] {
-  background-color: blue;
+.prev {
   height: 100%;
   width: 100%;
+  transform: translateX(-50px) scale(0.8);
+  opacity: 0.5;
   position: absolute;
-  transform: translateX(50px) scale(0.9);
-}
-
-[data-work="3"] {
-  background-color: green;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  transform: translateX(-50px) scale(0.9);
 }
 
 .arrow-left {

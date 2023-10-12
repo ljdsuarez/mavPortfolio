@@ -218,3 +218,80 @@ if (navContainer.dataset.navContainer == "mobile") {
     window.scrollTo(0, worksPage.offsetTop / 2);
   });
 }
+
+//works-carousel
+
+//URLs of files in ./public folder
+let content1 = ["1.png", "2.png", "3.png"];
+
+const arrowLeft = document.getElementById("arrow-left");
+const arrowRight = document.getElementById("arrow-right");
+
+function workImage(folder, item) {
+  const image = document.createElement("img");
+  image.setAttribute("src", `./public/works/${folder}/${item}`);
+  return image;
+}
+
+function workName(folderName, folderArray) {
+  for (let i = 0; i < folderArray.length; i++) {
+    const div = document.createElement("div");
+    div.setAttribute("class", "work-card");
+    div.setAttribute("id", `work-image-${i + 1}`);
+    document.getElementById("work-container").append(div);
+    div.append(workImage(folderName, folderArray[i]));
+  }
+
+  const slides = document.querySelectorAll(".work-card");
+
+  //initial css for carousel
+
+  slides[0].classList.add("active");
+  slides[1].classList.add("next");
+  slides[2].classList.add("prev");
+
+  const arrow = document.querySelectorAll(".arrow");
+  let current = 0;
+  let prev = folderArray.length - 1;
+  let next = 1;
+
+  for (let i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", () =>
+      i == 0 ? gotoPrev() : gotoNext()
+    );
+  }
+
+  const gotoPrev = () => {
+    current > 0 ? gotoNum(current - 1) : gotoNum(slides.length - 1);
+  };
+
+  const gotoNext = () => {
+    current < folderArray.length - 1 ? gotoNum(current + 1) : gotoNum(0);
+  };
+
+  const gotoNum = (number) => {
+    current = number;
+    prev = current - 1;
+    next = current + 1;
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].classList.remove("active");
+      slides[i].classList.remove("prev");
+      slides[i].classList.remove("next");
+    }
+
+    if (next == folderArray.length) {
+      next = 0;
+    }
+
+    if (prev == -1) {
+      prev = folderArray.length - 1;
+    }
+
+    slides[current].classList.add("active");
+    slides[prev].classList.add("prev");
+    slides[next].classList.add("next");
+  };
+}
+
+workName("content1", content1);
