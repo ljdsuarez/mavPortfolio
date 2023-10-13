@@ -272,11 +272,20 @@ function workName(folderName, folderArray) {
     const div = document.createElement("div");
     div.setAttribute("class", "work-card");
     div.setAttribute("id", `work-image-${i + 1}`);
-    document.getElementById("work-container").append(div);
     div.append(workImage(folderName, folderArray[i]));
+    document.getElementById("work-container").append(div);
+  }
+
+  for (let i = 0; i < folderArray.length; i++) {
+    const div = document.createElement("div");
+    div.setAttribute("class", "background-card");
+    div.setAttribute("id", `work-image-${i + 1}`);
+    div.append(workImage(folderName, folderArray[i]));
+    document.getElementById("bg-container").append(div);
   }
 
   const slides = document.querySelectorAll(".work-card");
+  const slidesBg = document.querySelectorAll(".background-card");
 
   //initial css for carousel
 
@@ -284,6 +293,13 @@ function workName(folderName, folderArray) {
   slides[1].classList.add("next");
   slides[2].classList.add("prev");
 
+  slidesBg[0].classList.add("active");
+  slidesBg[1].classList.add("next");
+  slidesBg[2].classList.add("prev");
+
+  //initial css background
+
+  //for arrows
   const arrow = document.querySelectorAll(".arrow");
   let current = 0;
   let prev = folderArray.length - 1;
@@ -312,6 +328,9 @@ function workName(folderName, folderArray) {
       slides[i].classList.remove("active");
       slides[i].classList.remove("prev");
       slides[i].classList.remove("next");
+      slidesBg[i].classList.remove("active");
+      slidesBg[i].classList.remove("prev");
+      slidesBg[i].classList.remove("next");
     }
 
     if (next == folderArray.length) {
@@ -325,6 +344,9 @@ function workName(folderName, folderArray) {
     slides[current].classList.add("active");
     slides[prev].classList.add("prev");
     slides[next].classList.add("next");
+    slidesBg[current].classList.add("active");
+    slidesBg[prev].classList.add("prev");
+    slidesBg[next].classList.add("next");
   };
 }
 
