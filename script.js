@@ -267,7 +267,7 @@ function workImage(folder, item) {
   return image;
 }
 
-function workName(folderName, folderArray) {
+function workName(folderName, folderArray, title) {
   for (let i = 0; i < folderArray.length; i++) {
     const div = document.createElement("div");
     div.setAttribute("class", "work-card");
@@ -348,6 +348,12 @@ function workName(folderName, folderArray) {
     slidesBg[prev].classList.add("prev");
     slidesBg[next].classList.add("next");
   };
+
+  //title
+  const workTitleContainer = document.createElement("div");
+  workTitleContainer.setAttribute("class", "work-title-container");
+  workTitleContainer.innerHTML = title;
+  worksPage.append(workTitleContainer);
 }
 
-workName("cosmetics", cosmetics);
+workName("cosmetics", cosmetics, "Cosmetics");

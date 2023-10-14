@@ -410,9 +410,9 @@ meter {
 }
 
 .about-card {
-  height: 200px;
+  height: 300px;
   width: 80%;
-  margin: 30px 0 200px 0;
+  margin: 30px 0 0 0;
   background-color: var(--color-2);
   border-radius: 20px;
   opacity: 0.6;
@@ -572,6 +572,22 @@ meter {
   opacity: 0.5;
 }
 
+.work-title-container {
+  position: absolute;
+  right: 0;
+  height: 10%;
+  width: 100%;
+  z-index: 100;
+  color: var(--color-2);
+  background-color: var(--color-1);
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 4rem;
+  font-family: var(--font-6);
+}
+
 /* ============== WORKS PAGE END ============== */
 
 /* ================================== DESKTOP =================================== */
@@ -711,7 +727,7 @@ meter {
     margin-right: 45px;
     padding-left: 200px;
     font-size: 1.5rem;
-    height: 300px;
+    height: 350px;
   }
 
   /* ============== ABOUT PAGE END============== */
