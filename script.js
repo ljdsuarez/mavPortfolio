@@ -113,6 +113,7 @@ function ul(index) {
 const homePage = document.getElementById("home");
 const aboutPage = document.getElementById("about");
 const worksPage = document.getElementById("works");
+const worksIntroPage = document.getElementById("works-intro");
 
 function underline() {
   let scrollTopPosition = window.scrollY;
@@ -125,10 +126,10 @@ function underline() {
       ul(0);
     } else if (
       scrollTopPosition > aboutPage.offsetTop - 100 &&
-      scrollTopPosition < worksPage.offsetTop - 100
+      scrollTopPosition < worksIntroPage.offsetTop - 100
     ) {
       ul(1);
-    } else if (scrollTopPosition > worksPage.offsetTop - 100) {
+    } else if (scrollTopPosition > worksIntroPage.offsetTop - 100) {
       ul(2);
     } else if (landingCardFlip.dataset.flip == "back") {
       ul(3);
@@ -143,10 +144,10 @@ function underline() {
       ul(0);
     } else if (
       scrollTopPosition > aboutPage.offsetTop - 100 &&
-      scrollTopPosition < worksPage.offsetTop - 100
+      scrollTopPosition < worksIntroPage.offsetTop - 100
     ) {
       ul(1);
-    } else if (scrollTopPosition > worksPage.offsetTop - 100) {
+    } else if (scrollTopPosition > worksIntroPage.offsetTop - 100) {
       ul(2);
     } else if (landingCardFlip.dataset.flip == "back") {
       ul(3);
@@ -187,7 +188,7 @@ if (navContainer.dataset.navContainer == "mobile") {
   const navWorks = document.getElementById("nav-works");
 
   navWorks.addEventListener("click", () => {
-    window.scrollTo(0, worksPage.offsetTop);
+    window.scrollTo(0, worksIntroPage.offsetTop);
   });
 } else {
   //home
@@ -217,7 +218,7 @@ if (navContainer.dataset.navContainer == "mobile") {
   const navWorks = document.getElementById("nav-works");
 
   navWorks.addEventListener("click", () => {
-    window.scrollTo(0, worksPage.offsetTop);
+    window.scrollTo(0, worksIntroPage.offsetTop);
   });
 }
 

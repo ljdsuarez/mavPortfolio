@@ -217,7 +217,7 @@ meter {
   left: 0;
   margin: 40px 0px;
   transform: rotate(-45deg);
-  font-size: 30px;
+  font-size: 20px;
   font-family: var(--font-6);
   color: var(--color-3);
 }
@@ -398,10 +398,11 @@ meter {
 }
 
 .about-image {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   background-color: var(--color-2);
   border-radius: 50%;
+  filter: brightness(115%);
 }
 
 .about-title {
@@ -674,6 +675,10 @@ meter {
     margin: 0 10px;
   }
 
+  .click-me {
+    font-size: 30px;
+  }
+
   .landing-page {
     width: 100%;
     min-height: 100vh;
@@ -757,14 +762,17 @@ meter {
   /* ============== ABOUT PAGE START============== */
 
   .about-image {
-    display: block;
-    width: 300px;
-    object-fit: contain;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     position: absolute;
     left: 50px;
     top: 150px;
-    filter: brightness(110%);
+  }
+
+  .about-title {
+    text-align: center;
+    width: 60%;
+    margin-left: auto;
   }
 
   .about-card {
@@ -840,6 +848,11 @@ meter {
 
   .about {
     width: 1024px;
+  }
+
+  .about-image {
+    height: 300px;
+    width: 300px;
   }
 
   .works-intro {
