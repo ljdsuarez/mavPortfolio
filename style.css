@@ -33,6 +33,7 @@ html {
   --color-1: #fff0ea;
   --color-2: #ff9d9d;
   --color-3: #5e5343;
+  --color-4: #9b4819;
 
   /* color variables */
 
@@ -397,7 +398,10 @@ meter {
 }
 
 .about-image {
-  display: none;
+  height: 300px;
+  width: 300px;
+  background-color: var(--color-2);
+  border-radius: 50%;
 }
 
 .about-title {
@@ -412,22 +416,65 @@ meter {
 .about-card {
   height: 300px;
   width: 80%;
-  margin: 30px 0 0 0;
-  background-color: var(--color-2);
   border-radius: 20px;
+  margin-top: 20px;
   opacity: 0.6;
   font-family: var(--font-1);
   padding: 15px;
   text-align: justify;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   font-size: 1rem;
 }
 
 /* ============== ABOUT PAGE END ============== */
 
 /* ============== WORKS PAGE START ============== */
+
+.works-intro {
+  height: 100vh;
+  height: 100svh;
+  width: 100%;
+  padding: 0px 0px 100px 00px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.work-intro-title-1 {
+  font-family: var(--font-1);
+  font-weight: 900;
+  color: var(--color-3);
+}
+
+.work-intro-title-2-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.work-intro-title-2-1 {
+  font-family: var(--font-2);
+  color: var(--color-4);
+  font-size: 3rem;
+}
+.work-intro-title-2-2 {
+  font-family: var(--font-2);
+  color: var(--color-4);
+  font-size: 3rem;
+}
+
+.work-intro-line {
+  height: 80vh;
+  width: 1px;
+  position: absolute;
+  background-color: var(--color-3);
+  right: 20%;
+  bottom: 10%;
+  opacity: 0;
+}
 
 .works {
   width: 100%;
@@ -711,13 +758,12 @@ meter {
 
   .about-image {
     display: block;
-    width: 50%;
+    width: 300px;
     object-fit: contain;
-    height: 80%;
+    height: 300px;
     position: absolute;
-    bottom: 0;
-    left: -40px;
-    z-index: 2;
+    left: 50px;
+    top: 150px;
     filter: brightness(110%);
   }
 
@@ -733,6 +779,34 @@ meter {
   /* ============== ABOUT PAGE END============== */
 
   /* ============== WORKS PAGE START============== */
+
+  .works-intro {
+    align-items: flex-start;
+    padding: 0px 0px 100px 50px;
+  }
+
+  .work-intro-title-1 {
+    font-size: 1.5rem;
+  }
+
+  .work-intro-title-2-container {
+    align-items: flex-start;
+  }
+
+  .work-intro-title-2-1 {
+    font-family: var(--font-2);
+    color: var(--color-4);
+    font-size: 5rem;
+  }
+  .work-intro-title-2-2 {
+    font-family: var(--font-2);
+    color: var(--color-4);
+    font-size: 5rem;
+  }
+
+  .work-intro-line {
+    opacity: 1;
+  }
 
   .works {
     height: 100vh;
@@ -765,6 +839,12 @@ meter {
   }
 
   .about {
+    width: 1024px;
+  }
+
+  .works-intro {
+    height: 100vh;
+    height: 100svh;
     width: 1024px;
   }
 
