@@ -446,15 +446,8 @@ function workName(folderName, folderArray, title) {
   workTitleContainer.setAttribute("class", "work-title-container");
   workTitleContainer.innerHTML = title;
   workContainer.append(workTitleContainer);
-
-  //from https://codyhouse.co/tutorials/how-stacking-cards
-
-  workContainer.classList.add("stack-cards__item");
-  workContainer.classList.add("js-stack-cards__item");
 }
-//from https://codyhouse.co/tutorials/how-stacking-cards
-worksPage.classList.add("stack-cards");
-worksPage.classList.add("js-stack-cards");
+
 //list all works with stacking animations
 
 workName("cosmetics", cosmetics, "Cosmetics");
@@ -462,18 +455,4 @@ workName("content1", content1, "Content");
 workName("content2", content2, "Content");
 workName("logos", logos, "Logos");
 
-const workContainers = document.querySelectorAll(`.work-container`);
-
-// Pass the number of cards to the CSS because it needs it to add some extra padding.
-// Without this extra padding, the last card won’t move with the group but slide over it.
-const numContainers = workContainers.length;
-worksPage.style.setProperty("--numContainers", numContainers);
-
-// Each card should only shrink when it’s at the top.
-// We can’t use exit on the els for this (as they are sticky)
-// but can track $cardsWrapper instead.
-
-const viewTimeline = new ViewTimeline({
-  subject: worksPage,
-  axis: "block",
-});
+// const workContainers = document.querySelectorAll(`.work-container`);

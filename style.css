@@ -478,16 +478,6 @@ meter {
   opacity: 0;
 }
 
-.works {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-size: contain;
-  position: relative;
-}
-
 .bg-container {
   height: 100%;
   width: 100%;
@@ -511,9 +501,19 @@ meter {
   width: 100%;
 }
 
-.work-container {
+.works {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.work-container {
+  width: 100%;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -524,6 +524,8 @@ meter {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   overflow: hidden;
   margin-bottom: 30px;
+  top: 0.75em;
+  position: relative;
 }
 
 .work-card-container {
@@ -534,6 +536,7 @@ meter {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  margin-top: 40px;
 }
 
 .work-card-container img {
@@ -640,13 +643,6 @@ meter {
   padding-left: 20px;
   font-size: 4rem;
   font-family: var(--font-6);
-}
-
-/* from https://codyhouse.co/tutorials/how-stacking-cards */
-.stack-cards__item {
-  position: sticky;
-  top: 0.75em;
-  transform-origin: center top;
 }
 
 /* ============== WORKS PAGE END ============== */
@@ -836,9 +832,8 @@ meter {
   }
 
   .works {
-    height: 100vh;
-    height: 100svh;
     padding-top: 40px;
+    height: 450vh;
   }
 
   .work-card {
