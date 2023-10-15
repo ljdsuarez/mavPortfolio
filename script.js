@@ -262,19 +262,36 @@ let logos = ["1.png", "2.png", "3.png", "4.png"];
 const arrowLeft = document.getElementById("arrow-left");
 const arrowRight = document.getElementById("arrow-right");
 
+//function for making the work experience container
+
 function workImage(folder, item) {
   const image = document.createElement("img");
   image.setAttribute("src", `./public/works/${folder}/${item}`);
+  image.setAttribute("draggable", false);
   return image;
 }
 
 function workName(folderName, folderArray, title) {
+  const workContainer = document.createElement("div");
+  workContainer.setAttribute("class", "work-container");
+  workContainer.setAttribute("id", `work-container-${folderName}`);
+  worksPage.append(workContainer);
+
+  const workCardContainer = document.createElement("div");
+  workCardContainer.setAttribute("class", "work-card-container");
+  workCardContainer.setAttribute("id", "work-card-container");
+  workContainer.append(workCardContainer);
+  const bgContainer = document.createElement("div");
+  bgContainer.setAttribute("class", "bg-container");
+  bgContainer.setAttribute("id", "bg-container");
+  workContainer.append(bgContainer);
+
   for (let i = 0; i < folderArray.length; i++) {
     const div = document.createElement("div");
     div.setAttribute("class", "work-card");
     div.setAttribute("id", `work-image-${i + 1}`);
     div.append(workImage(folderName, folderArray[i]));
-    document.getElementById("work-container").append(div);
+    workCardContainer.append(div);
   }
 
   for (let i = 0; i < folderArray.length; i++) {
@@ -282,11 +299,15 @@ function workName(folderName, folderArray, title) {
     div.setAttribute("class", "background-card");
     div.setAttribute("id", `work-image-${i + 1}`);
     div.append(workImage(folderName, folderArray[i]));
-    document.getElementById("bg-container").append(div);
+    bgContainer.append(div);
   }
 
-  const slides = document.querySelectorAll(".work-card");
-  const slidesBg = document.querySelectorAll(".background-card");
+  const slides = document.querySelectorAll(
+    `#work-container-${folderName} .work-card`
+  );
+  const slidesBg = document.querySelectorAll(
+    `#work-container-${folderName} .background-card`
+  );
 
   //initial css for carousel
 
@@ -301,7 +322,36 @@ function workName(folderName, folderArray, title) {
   //initial css background
 
   //for arrows
-  const arrow = document.querySelectorAll(".arrow");
+  const arrowContainer = document.createElement("div");
+  arrowContainer.setAttribute("class", "arrow-container");
+  const arrowLeft = document.createElement("div");
+  arrowLeft.setAttribute("class", "arrow-left");
+  arrowLeft.setAttribute("id", "arrow-left");
+  const arrowRight = document.createElement("div");
+  arrowRight.setAttribute("class", "arrow-right");
+  arrowRight.setAttribute("id", "arrow-right");
+  arrowLeft.classList.add("arrow");
+  arrowRight.classList.add("arrow");
+  arrowContainer.append(arrowLeft);
+  arrowContainer.append(arrowRight);
+
+  const arrowLeftIcon = document.createElement("span");
+  arrowLeftIcon.setAttribute("class", "material-symbols-outlined");
+  arrowLeftIcon.style.fontSize = "40px";
+  arrowLeftIcon.innerHTML = " arrow_back_ios";
+  arrowLeft.append(arrowLeftIcon);
+
+  const arrowRightIcon = document.createElement("span");
+  arrowRightIcon.setAttribute("class", "material-symbols-outlined");
+  arrowRightIcon.style.fontSize = "40px";
+  arrowRightIcon.innerHTML = "arrow_forward_ios";
+  arrowRight.append(arrowRightIcon);
+
+  workContainer.append(arrowContainer);
+
+  const arrow = document.querySelectorAll(
+    `#work-container-${folderName} .arrow`
+  );
   let current = 0;
   let prev = folderArray.length - 1;
   let next = 1;
@@ -350,11 +400,80 @@ function workName(folderName, folderArray, title) {
     slidesBg[next].classList.add("next");
   };
 
+  //for click-slide event
+
+  let posX1 = 0;
+  let posX2 = 0;
+
+  function swipeStart(e) {
+    document.addEventListener("touchmove", swipeAction);
+    document.addEventListener("mousemove", swipeAction);
+    document.addEventListener("touchend", swipeEnd);
+    document.addEventListener("mouseup", swipeEnd);
+    //for mouse
+
+    e.type.search("touch") !== -1
+      ? (posX1 = e.touches[0].clientX)
+      : (posX1 = e.clientX);
+  }
+
+  function swipeAction(e) {
+    e.type.search("touch") !== -1
+      ? (posX2 = posX1 - e.touches[0].clientX)
+      : (posX2 = posX1 - e.clientX);
+  }
+
+  function swipeEnd() {
+    document.removeEventListener("touchmove", swipeAction);
+    document.removeEventListener("mousemove", swipeAction);
+    document.removeEventListener("touchend", swipeEnd);
+    document.removeEventListener("mouseup", swipeEnd);
+    if (posX2 > 0) {
+      gotoNext();
+    } else if (posX2 == 0) {
+      return;
+    } else {
+      gotoPrev();
+    }
+    posX2 = 0;
+  }
+
+  workCardContainer.addEventListener("touchstart", swipeStart);
+  workCardContainer.addEventListener("mousedown", swipeStart);
+
   //title
   const workTitleContainer = document.createElement("div");
   workTitleContainer.setAttribute("class", "work-title-container");
   workTitleContainer.innerHTML = title;
-  worksPage.append(workTitleContainer);
+  workContainer.append(workTitleContainer);
+
+  //from https://codyhouse.co/tutorials/how-stacking-cards
+
+  workContainer.classList.add("stack-cards__item");
+  workContainer.classList.add("js-stack-cards__item");
 }
+//from https://codyhouse.co/tutorials/how-stacking-cards
+worksPage.classList.add("stack-cards");
+worksPage.classList.add("js-stack-cards");
+//list all works with stacking animations
 
 workName("cosmetics", cosmetics, "Cosmetics");
+workName("content1", content1, "Content");
+workName("content2", content2, "Content");
+workName("logos", logos, "Logos");
+
+const workContainers = document.querySelectorAll(`.work-container`);
+
+// Pass the number of cards to the CSS because it needs it to add some extra padding.
+// Without this extra padding, the last card won’t move with the group but slide over it.
+const numContainers = workContainers.length;
+worksPage.style.setProperty("--numContainers", numContainers);
+
+// Each card should only shrink when it’s at the top.
+// We can’t use exit on the els for this (as they are sticky)
+// but can track $cardsWrapper instead.
+
+const viewTimeline = new ViewTimeline({
+  subject: worksPage,
+  axis: "block",
+});
