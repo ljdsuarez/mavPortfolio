@@ -448,11 +448,34 @@ function workName(folderName, folderArray, title) {
   workContainer.append(workTitleContainer);
 }
 
-//list all works with stacking animations
-
 workName("cosmetics", cosmetics, "Cosmetics");
 workName("content1", content1, "Content");
 workName("content2", content2, "Content");
 workName("logos", logos, "Logos");
 
-// const workContainers = document.querySelectorAll(`.work-container`);
+//work-name list
+let workList = document.querySelectorAll(".work-list");
+let workListUnderline = document.querySelectorAll(".work-list-underline");
+let workListArray = ["cosmetics", "content1", "content2", "logos"];
+
+document.querySelectorAll(".work-container")[0].classList.add("show");
+workListUnderline[0].classList.add("grow");
+
+for (let i = 0; i < workList.length; i++) {
+  workList[i].addEventListener("click", () => {
+    let id = workList[i].id;
+    for (let j = 0; j < workListArray.length; j++) {
+      if (id == workListArray[j]) {
+        document
+          .getElementById(`work-container-${workListArray[j]}`)
+          .classList.add("show");
+      } else {
+        document
+          .getElementById(`work-container-${workListArray[j]}`)
+          .classList.remove("show");
+      }
+      workListUnderline[j].classList.remove("grow");
+    }
+    workListUnderline[i].classList.add("grow");
+  });
+}

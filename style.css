@@ -513,23 +513,24 @@ meter {
 
 .work-container {
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   overflow: hidden;
   margin-bottom: 30px;
-  top: 0.75em;
-  position: relative;
+  top: 50px;
+  position: absolute;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
 
 .work-card-container {
-  width: 80%;
+  width: 90%;
   height: 100vh;
   display: flex;
   position: relative;
@@ -551,6 +552,7 @@ meter {
   transition: all 0.8s cubic-bezier(0.47, 1.64, 0.41, 0.8);
   position: absolute;
   opacity: 0;
+  margin-top: 80px;
 }
 
 .active {
@@ -563,7 +565,7 @@ meter {
 }
 
 .next {
-  height: 100%;
+  height: 60%;
   width: 100%;
   transform: translateX(15%) scale(0.8);
   opacity: 0.5;
@@ -572,7 +574,7 @@ meter {
 }
 
 .prev {
-  height: 100%;
+  height: 60%;
   width: 100%;
   transform: translateX(-15%) scale(0.8);
   opacity: 0.5;
@@ -584,7 +586,7 @@ meter {
   width: 200px;
   height: 100px;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
 }
 
 .arrow-left {
@@ -632,17 +634,57 @@ meter {
 .work-title-container {
   position: absolute;
   right: 0;
-  height: 10%;
-  width: 100%;
+  height: 80px;
+  width: 60%;
   z-index: 100;
-  color: var(--color-2);
+  color: var(--color-4);
   background-color: var(--color-1);
-  top: 0;
+  top: 40px;
   display: flex;
   align-items: center;
   padding-left: 20px;
-  font-size: 4rem;
-  font-family: var(--font-6);
+  font-size: 3rem;
+  font-family: var(--font-1);
+  border-top-left-radius: 20px;
+}
+
+/* work-list */
+
+.work-lists {
+  height: 50px;
+  width: 100%;
+  background-color: var(--color-1);
+  display: flex;
+  align-items: center;
+  color: var(--color-3);
+  font-family: var(--font-1);
+  overflow: scroll;
+  position: relative;
+}
+
+.work-list {
+  margin: 0px 10px;
+  font-weight: 600;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.1s ease-in-out;
+  padding-bottom: 4px;
+}
+
+.work-list:hover {
+  transform: scale(1.1);
+}
+
+.work-list-underline {
+  height: 2px;
+  width: 0%;
+  background-color: var(--color-2);
+  border: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
 }
 
 /* ============== WORKS PAGE END ============== */
@@ -656,6 +698,10 @@ meter {
 @media (min-width: 425px) {
   .landing-card {
     aspect-ratio: 3/2;
+  }
+
+  .work-title-container {
+    font-size: 4rem;
   }
 }
 
@@ -833,16 +879,43 @@ meter {
 
   .works {
     padding-top: 40px;
-    height: 450vh;
+    height: 120vh;
   }
 
   .work-card {
-    width: 80%;
-    height: 80%;
+    width: 40%;
+    height: 100%;
   }
 
   .bg-container {
     transform: scale(3);
+  }
+
+  .arrow-container {
+    bottom: 15px;
+  }
+
+  .work-title-container {
+    font-size: 6rem;
+  }
+
+  /* work-list */
+
+  .work-lists {
+    height: 40%;
+    width: auto;
+    z-index: 3;
+    align-self: flex-start;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: hidden;
+    align-items: flex-start;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .work-list {
+    margin-right: 20px;
   }
 
   /* ============== WORKS PAGE END============== */
@@ -881,4 +954,13 @@ meter {
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 200, "opsz" 48;
   color: var(--color-1);
+}
+
+/* ============== JAVSCRIPT COMMAND ============== */
+.show {
+  opacity: 1;
+}
+
+.grow {
+  width: 100%;
 }
