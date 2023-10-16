@@ -527,6 +527,7 @@ meter {
   position: absolute;
   opacity: 0;
   transition: all 0.5s ease-in-out;
+  border-radius: 10px;
 }
 
 .work-card-container {
@@ -634,18 +635,19 @@ meter {
 .work-title-container {
   position: absolute;
   right: 0;
-  height: 80px;
+  height: 100px;
   width: 60%;
   z-index: 100;
   color: var(--color-4);
   background-color: var(--color-1);
-  top: 40px;
+  top: 80px;
   display: flex;
   align-items: center;
   padding-left: 20px;
   font-size: 3rem;
   font-family: var(--font-1);
   border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 /* work-list */
