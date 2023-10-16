@@ -28,6 +28,7 @@ html {
   --font-4: "Mr De Haviland", cursive;
   --font-5: "Dancing Script", cursive;
   --font-6: "Nanum Pen Script", cursive;
+  --font-7: "Lobster Two", sans-serif;
 
   /* color variables */
   --color-1: #fff0ea;
@@ -143,7 +144,7 @@ meter {
 
 .nav-container {
   position: fixed;
-  height: 30px;
+  height: 40px;
   width: 100%;
   background-color: var(--color-1);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -166,12 +167,13 @@ meter {
 .logo {
   height: 100%;
   width: 25px;
+  display: flex;
 }
 
 .nav {
   display: flex;
   font-family: var(--font-1);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin-right: 10px;
   position: relative;
   white-space: nowrap;
@@ -423,11 +425,12 @@ meter {
   opacity: 0.6;
   font-family: var(--font-1);
   padding: 15px;
-  text-align: justify;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   font-size: 1rem;
+  line-height: 1.3rem;
 }
 
 /* ============== ABOUT PAGE END ============== */
@@ -494,7 +497,6 @@ meter {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.8s cubic-bezier(0.23, 0.62, 0.63, 0.89);
   position: absolute;
   opacity: 0;
   height: 100%;
@@ -527,7 +529,6 @@ meter {
   position: absolute;
   opacity: 0;
   transition: all 0.5s ease-in-out;
-  border-radius: 10px;
 }
 
 .work-card-container {
@@ -604,6 +605,10 @@ meter {
   transition: all 0.1s ease-in-out;
 }
 
+.arrow-left:hover {
+  transform: scale(1.1);
+}
+
 .arrow-left:active {
   transform: scale(0.8);
   transition: all 0.1s ease-in-out;
@@ -621,6 +626,10 @@ meter {
   mix-blend-mode: difference;
   user-select: none;
   transition: all 0.1s ease-in-out;
+}
+
+.arrow-right:hover {
+  transform: scale(1.1);
 }
 
 .arrow-right:active {
@@ -645,9 +654,10 @@ meter {
   align-items: center;
   padding-left: 20px;
   font-size: 3rem;
-  font-family: var(--font-1);
+  font-family: var(--font-7);
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  font-weight: 800;
 }
 
 /* work-list */
@@ -838,6 +848,14 @@ meter {
     font-size: 6rem;
   }
 
+  .about-line {
+    height: 1px;
+    width: 60%;
+    background-color: var(--color-4);
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
   .about-card {
     align-self: flex-end;
     width: 75%;
@@ -845,6 +863,8 @@ meter {
     padding-left: 200px;
     font-size: 1.5rem;
     height: 350px;
+    line-height: 1.8rem;
+    text-align: left;
   }
 
   /* ============== ABOUT PAGE END============== */
@@ -890,7 +910,7 @@ meter {
   }
 
   .bg-container {
-    transform: scale(3);
+    transform: scale(2.1);
   }
 
   .arrow-container {
