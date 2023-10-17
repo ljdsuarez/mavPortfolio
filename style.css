@@ -647,7 +647,7 @@ meter {
   height: 100px;
   width: 60%;
   z-index: 100;
-  color: var(--color-4);
+  color: var(--color-2);
   background-color: var(--color-1);
   top: 80px;
   display: flex;
