@@ -967,8 +967,8 @@ meter {
     width: 1024px;
   }
 
-  .works {
-    width: 1024px;
+  .work-card-container {
+    width: 70%;
   }
 }
 
