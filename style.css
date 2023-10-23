@@ -39,7 +39,7 @@ html {
   /* color variables */
 
   --underline-width: 50px;
-  --underline-height: 2px;
+  --underline-height: 3px;
 }
 
 /* Reapply the pointer cursor for anchor tags */
@@ -689,7 +689,7 @@ meter {
 }
 
 .work-list-underline {
-  height: 2px;
+  height: 3px;
   width: 0%;
   background-color: var(--color-2);
   border: 30px;
